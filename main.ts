@@ -17,6 +17,8 @@ edubitIrBit.onIrSensorEvent(IrEventType.Rise, function () {
     basic.showIcon(IconNames.Chessboard)
     edubitTrafficLightBit.setLed(LedColor.Yellow, edubitTrafficLightBit.digitalStatePicker(DigitalIoState.On))
     basic.showIcon(IconNames.Diamond)
+    edubitMotors.runMotor(MotorChannel.M1, MotorDirection.Backward, 255)
+    music.startMelody(music.builtInMelody(Melodies.Wawawawaa), MelodyOptions.Once)
     basic.showLeds(`
         . . . . .
         . . . . .
@@ -28,4 +30,5 @@ edubitIrBit.onIrSensorEvent(IrEventType.Rise, function () {
     edubitTrafficLightBit.setLed(LedColor.Yellow, edubitTrafficLightBit.digitalStatePicker(DigitalIoState.Off))
     edubitTrafficLightBit.setLed(LedColor.Green, edubitTrafficLightBit.digitalStatePicker(DigitalIoState.Off))
     basic.clearScreen()
+    edubitMotors.brakeMotor(MotorChannel.All)
 })
